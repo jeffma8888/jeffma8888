@@ -18,6 +18,7 @@ Backend and platform work at Amazon across logistics, document-compliance, and s
 - Led workstreams in a large **org-wide inbound-reliability initiative** across **8+ teams** alongside Principal Engineers — co-designing the system architecture and redefining service-ownership boundaries into a clean multi-model design.
 - Built distributed **event-driven workflow orchestration** with strong **idempotency** for a major international expansion; resolved retry-storms with a service **token-pool** mechanism that sharply cut operational load.
 - Drove a real-time, **event-driven backend** for a flagship seller-connection program; defined **schema-first GraphQL / REST API contracts** between web clients and backend services.
+- Spearheaded a **0-to-1, multi-org inbound capacity-allocation platform initiative** — ideation through architecture, with multi-million-dollar projected savings.
 - Championed a multi-year **architecture plan** — microservice decomposition and self-service platformization that removed team bottlenecks and improved developer productivity.
 - **NA Regional Winner**, Amazon agentic-AI hackathon — led 5 engineers to build a technical-advisor agent with **human-review gates** on every action.
 - Drove org-wide **agentic-AI adoption** as AI Campaign Owner: weekly workshops for **30+ engineers** (ReAct, MCP, multi-agent, context management, AI observability); established spec-driven AI-native development across 3 teams.
@@ -28,11 +29,15 @@ Backend and platform work at Amazon across logistics, document-compliance, and s
 
 **Personal projects — built on my own time, in addition to the professional work above.** Open-source, runnable, and tested; they show how I think about backend systems and AI reliability:
 
-### 🤖 [reflect-mcp](https://github.com/JinchenMa/reflect-mcp) — self-verifying agents over MCP
+### 🧭 [proactive-loop-agent](https://github.com/jeffma8888/proactive-loop-agent) — agents that find the work, not just do it
+A **three-layer autonomous-agent architecture** that flips agentic AI from reactive to proactive. An **L2 scout** continuously scans your working context — active projects, recent activity, unfinished threads — and synthesizes a **ranked slate of targeted goals** you haven't asked for yet; an **autonomy-contract policy gate** auto-dispatches the safe ones and routes sensitive ones for human approval. Approved goals flow to an **L1 plan-act-check goal loop** driving **L0 executors** with exponential-backoff retry and atomic checkpoints — so work completes unattended, surviving model throttling and interruptions with zero lost progress. Fully offline demo (deterministic scripted-LLM double), also live-verified against AWS Bedrock.
+`Python` · `Pydantic v2` · `LLM goal synthesis` · `policy-gated autonomy` · `pytest`
+
+### 🤖 [reflect-mcp](https://github.com/jeffma8888/reflect-mcp) — self-verifying agents over MCP
 A multi-agent pipeline that **checks its own work before surfacing it**: a *Generator* produces a structured result, a **second-model Critic** scores it field-by-field, and anything below a confidence threshold is routed to a **human-in-the-loop gate** instead of being returned as a silent guess. Deterministic tests around a stochastic core + a golden-file eval harness that measures accuracy, not vibes.
 `Python` · `MCP / FastMCP` · `Pydantic` · `pytest`
 
-### 🔗 [graphql-rest-gateway](https://github.com/JinchenMa/graphql-rest-gateway) — schema-first GraphQL that kills N+1
+### 🔗 [graphql-rest-gateway](https://github.com/jeffma8888/graphql-rest-gateway) — schema-first GraphQL that kills N+1
 A production-shaped GraphQL gateway that wraps REST backends and eliminates the **N+1 query explosion** with request-scoped **DataLoader** batching. Ships with a benchmark that *proves* the fix — **21 → 3 downstream calls (7×)** for the same query — and a regression test that fails if batching ever breaks. Plus cursor pagination, query depth/complexity limiting, and clean resolver → service → data-source layering.
 `TypeScript` · `GraphQL Yoga` · `DataLoader` · `Vitest`
 
